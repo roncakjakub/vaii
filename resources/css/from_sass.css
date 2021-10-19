@@ -4584,6 +4584,12 @@ readers do not read off random characters that represent icons */
 .fs-16 {
   font-size: 1rem !important; }
 
+.fs-18 {
+  font-size: 1.125rem !important; }
+
+.fs-20 {
+  font-size: 1.25rem !important; }
+
 .fs-21 {
   font-size: 1.3125rem !important; }
 
@@ -4604,6 +4610,12 @@ readers do not read off random characters that represent icons */
 
 .text-my-grey {
   color: #7B868B !important; }
+
+.text-my-grey2 {
+  color: #595959 !important; }
+
+.bg-white2 {
+  background-color: #FAFAFA !important; }
 
 .bg-orange {
   background-color: #EABE92 !important; }
@@ -4646,7 +4658,7 @@ footer {
   background-image: url("/img/home-img.png");
   background-size: cover; }
   .home .top-banner .content {
-    padding-top: 100px;
+    padding-top: 88px;
     padding-bottom: 30px; }
 
 .home .home-form {
@@ -4663,7 +4675,7 @@ footer {
 .home .how-to-register {
   margin-top: -24px;
   z-index: 4 !important;
-  padding: 44px; }
+  padding: 36px; }
   .home .how-to-register p:not(:last-child) {
     margin-bottom: 16px; }
 
@@ -4680,5 +4692,21 @@ footer {
   padding-left: 32px; }
   .kurzy ul li {
     list-style-type: circle; }
+
+.kontakt {
+  border-radius: 16px; }
+
+@media (max-width: 991px) {
+  .home .top-banner .content {
+    padding-top: 48px; }
+  .kontakt .left-image {
+    height: 140px;
+    overflow: hidden; }
+    .kontakt .left-image img {
+      object-fit: cover;
+      height: 100%; }
+  .kontakt .right-side img {
+    height: 100px;
+    object-fit: cover; } }
 
 /*# sourceMappingURL=from_sass.css.map */

@@ -4,23 +4,22 @@
         <div class="top-banner w-100  text-white">
             <div class="container content pb-5">
                 <div class="row">
-                    <div class="col-7 fs-24 ff-mrsw ps-3">
+                    <div class="col-md-7 col-12 fs-24 ff-mrsw ps-3 left-side mb-5 mb-md-0">
                         <h2 class="ff-avnr fw-normal fs-32">
                             Čo ti môžeme ponúknuť?
                         </h2>
-                        <ul class=" mb-5">
+                        <ul class=" mb-md-5">
                             <li><i class="fa fa-check text-orange me-2"></i> Mnohoročné skúsenosti</li>
                             <li><i class="fa fa-check text-orange me-2"></i> Špičkových inštruktorov</li>
                             <li><i class="fa fa-check text-orange me-2"></i> Viac vozidiel k výberu</li>
                             <li><i class="fa fa-check text-orange me-2"></i> Široký výber kurzov</li>
                             <li><i class="fa fa-check text-orange me-2"></i> Vlastné autocvičisko</li>
                         </ul>
-                        <p class="fs-32">
-                            Prihlás sa ku nám a už ťa <span class="text-orange">žiadna <br>
-                            križovatka</span> nevyvedie z miery
-                        </p>
+                        <p class="fs-32 d-inline d-lg-block">Prihlás sa ku nám a už ťa <span class="text-orange">žiadna</span></p>
+                        <p class="fs-32 d-inline d-lg-block "> <span class="text-orange">križovatka</span> nevyvedie z miery</p>
+
                     </div>
-                    <div class="col-4 ">
+                    <div class="col-xl-4 col-md-5">
                         <div class="home-form ff-avnr fs-16">
                             <form action="" class="p-3">
                                 <div class="input-group mb-3">
@@ -34,23 +33,23 @@
 
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text h-100" id="basic-addon1"><i
+                                        <span class="input-group-text h-100" id="basic-addon2"><i
                                                 class="fas fa-envelope"></i></span>
                                     </div>
                                     <input type="text" class="form-control" placeholder="Email"
-                                           aria-label="Email" aria-describedby="basic-addon1">
+                                           aria-label="Email" aria-describedby="basic-addon2">
                                 </div>
 
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text h-100" id="basic-addon1"><i
+                                        <span class="input-group-text h-100" id="basic-addon3"><i
                                                 class="fas fa-phone"></i></span>
                                     </div>
                                     <input type="text" class="form-control" placeholder="Telefón"
-                                           aria-label="Telefón" aria-describedby="basic-addon1">
+                                           aria-label="Telefón" aria-describedby="basic-addon3">
                                 </div>
 
-                                <div class="row justify-content-center px-5 mx-5">
+                                <div class="text-center">
                                     <button type="button" class="btn bg-red text-white ff-mrsw fs-16">
                                         Odoslať
                                     </button>
@@ -59,12 +58,12 @@
 
                             <div class="bottom p-3 ff-crd">
                                 <a href="" class="row align-items-center mb-3">
-                                    <div class="col-1"><i class="fas fa-download"></i></div>
-                                    <span class="fs-16 col-11">Žiadosť o udelenie vodičského oprávnenia</span>
+                                    <div class="col-md col-1 col-lg-1"><i class="fas fa-download"></i></div>
+                                    <span class="fs-16 col-lg-11 col-10 ps-0 ps-lg-3">Žiadosť o udelenie vodičského oprávnenia</span>
                                 </a>
                                 <a href="" class="row align-items-center">
-                                    <div class="col-1"><i class="fas fa-download"></i></div>
-                                    <span class="fs-16 col-11">Žiadosť o zaevidovanie osoby sediacej na mieste spolujazdca vedľa vodiča</span>
+                                    <div class="col-md col-1 col-lg-1"><i class="fas fa-download"></i></div>
+                                    <span class="fs-16 col-lg-11 col-10 ps-0 ps-lg-3">Žiadosť o zaevidovanie osoby sediacej na mieste spolujazdca vedľa vodiča</span>
                                 </a>
                             </div>
 
