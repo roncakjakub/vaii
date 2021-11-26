@@ -4629,7 +4629,9 @@ readers do not read off random characters that represent icons */
 
 body {
   font-size: 16px;
-  background-color: #FAFAFA; }
+  background-color: #FAFAFA;
+  min-height: 100vh;
+  padding-bottom: 60px; }
 
 a {
   text-decoration: none; }
@@ -4638,7 +4640,8 @@ li {
   list-style: none; }
 
 footer {
-  color: #7B868B; }
+  color: #7B868B;
+  bottom: 0; }
 
 .navbar {
   background-color: #FFFFFF;
@@ -4692,6 +4695,18 @@ footer {
   padding-left: 32px; }
   .kurzy ul li {
     list-style-type: circle; }
+
+.kurzy .admin-actions {
+  border-radius: 50%;
+  padding: 8px 9px 7px 13px;
+  left: -4px;
+  top: -18px;
+  background-color: #C60D13; }
+  .kurzy .admin-actions i {
+    color: #FAFAFA; }
+
+.kurzy .new-item {
+  font-size: 5em; }
 
 .kontakt {
   border-radius: 16px; }

@@ -14,6 +14,22 @@ use Illuminate\Support\Facades\Artisan;
 |
 */
 
-Artisan::command('inspire', function () {
-    $this->comment(Inspiring::quote());
-})->purpose('Display an inspiring quote');
+Artisan::command('createAdmin', function () {
+    \App\Models\User::create([
+        'name' => 'Filip Testovač',
+        'email' => 'f@t.sk',
+        'password' => bcrypt('Filip123'),
+    ]);
+});
+
+Artisan::command('createCourses', function () {
+    foreach (['AM', 'A1', 'A2', 'BE', 'B', 'B1', 'C', 'T'] as $code) {
+        \App\Models\Course::create([
+            'code' => $code,
+            'price' => '111.23',
+            'short_desc_1' => 'Motocykel s objemom motora do 125cm3',
+            'short_desc_2' => 'Od 16 rokov',
+            'short_desc_3' => 'Zahŕňa skupinu AM'
+        ]);
+    }
+});

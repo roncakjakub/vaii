@@ -36,7 +36,8 @@
                                aria-label="Telefón" aria-describedby="basic-addon3">
                     </div>
                     <div class="form-group col-12 mb-2">
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Vaša správa"></textarea>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
+                                  placeholder="Vaša správa"></textarea>
                     </div>
                     <div class="offset-8 col-4 align-content-end ">
                         <button type="button" class="btn bg-red text-white ff-mrsw fs-16 w-100">
@@ -47,10 +48,10 @@
             </div>
             <div class="col-lg-3 col-md-4 col-sm-5 col-12 px-0 right-side">
                 <img src="{{asset('img/map.png')}}" alt="" class="w-100 mb-3">
-                    <div class="ff-mrsw fs-18 ms-3 mb-2">
-                        <i class="fas fa-user-alt"></i>
-                        Filip Testovač
-                    </div>
+                <div class="ff-mrsw fs-18 ms-3 mb-2">
+                    <i class="fas fa-user-alt"></i>
+                    Filip Testovač
+                </div>
                 <div class="ff-mrsw fs-18 ms-3 mb-2">
                     <i class="fas fa-envelope fs-18"></i>
                     as.ft@gmail.com

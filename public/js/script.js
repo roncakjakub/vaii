@@ -15927,3 +15927,9 @@ return jQuery;
 }));
 //# sourceMappingURL=bootstrap.js.map
 
+$(document).ready(function () {
+    $('.addressable').on('click', function (e) {
+        e.preventDefault()
+        window.location = $(this).data('href')
+    })
+});
