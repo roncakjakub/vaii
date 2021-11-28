@@ -74,7 +74,7 @@
     </div>
 </nav>
 
-<div class="sub-nav bg-red text-white text-center my-shadow ff-mrsw">
+<div class="sub-nav text-white text-center my-shadow ff-mrsw">
     <div class="container">
         Z dôvodu nariadenia vlády SR o zákaze vychádzania. Prevádzka našej autoškoly bude dňom 19.9.2021
         dočasne uzavreta.
