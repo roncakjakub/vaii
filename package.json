@@ -43,6 +43,7 @@
   "homepage": "https://github.com/roncakjakub/vaii#readme",
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.4",
-    "laravel-elixir": "^5.0.0"
+    "laravel-elixir": "^5.0.0",
+    "select2": "*"
   }
 }

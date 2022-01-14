@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Courses;
+namespace App\Http\Requests\Vehicles;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateCourseRequest extends FormRequest
+class UpdateVehicleFormRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,11 +24,8 @@ class UpdateCourseRequest extends FormRequest
     public function rules()
     {
         return [
-            'code' => 'required|string|max:20|unique:courses,code,'.$this->course->code.',code',
-            'price' => 'required|numeric',
-            'short_desc_1' => 'required|string',
-            'short_desc_2' => 'required|string',
-            'short_desc_3' => 'required|string',
+            'name' => 'required|string|max:255',
+            'preferred_licence_type_code' => 'nullable|exists:licence_types,code',
         ];
     }
 }

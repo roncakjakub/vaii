@@ -15,11 +15,12 @@ class CreateCoursesTable extends Migration
     {
         Schema::create('courses', function (Blueprint $table) {
             $table->id();
-            $table->string('code',20);
-            $table->string('short_desc_1')->nullable();
-            $table->string('short_desc_2')->nullable();
-            $table->string('short_desc_3')->nullable();
-            $table->unsignedDouble('price');
+            $table->string('licence_type_code');
+            $table->foreign('licence_type_code')->on('licence_types')->references('code');
+            $table->date('date_from');
+            $table->date('date_to');
+            $table->unsignedSmallInteger('capacity');
+            $table->foreignId('vehicle_id')->nullable();
             $table->timestamps();
         });
     }

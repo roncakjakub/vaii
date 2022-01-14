@@ -8,6 +8,7 @@ elixir(function (mix) {
     mix.sass([
         // '../../node_modules/bootstrap/scss/bootstrap.scss',
         '../../node_modules/@fortawesome/fontawesome-free/scss/fontawesome.scss',
+        '../../node_modules/select2/dist/css/select2.min.css',
         'style.sass',
     ], 'resources/css/from_sass.css')
     // mix.sass(
@@ -24,6 +25,7 @@ elixir(function (mix) {
         'node_modules/jquery/dist/jquery.js',
         // 'themes/pavuk/assets/js/masonry.js',
         'node_modules/bootstrap/dist/js/bootstrap.js',
+        'node_modules/select2/dist/js/select2.js',
         // 'themes/pavuk/assets/js/imagesLoaded.js',
         // 'themes/pavuk/assets/js/masonry.js',
         // 'node_modules/lightbox2/dist/js/lightbox.js',

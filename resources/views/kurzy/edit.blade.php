@@ -1,5 +1,7 @@
 @extends('templates.default')
 @section('content')
+    <h1 class="text-center mt-4 ff-mrsw">Úprava kurzu #{{$course->id}}</h1>
+
     <div class="kurzy container mt-5 ff-crd">
         @if(count($errors) > 0)
             @foreach($errors->all() as $error)
@@ -13,52 +15,69 @@
             <div class='alert alert-danger'>{{session('error')}}</div>
         @endif
 
-        <div class="row ">
-            {!! Form::open(['route' => ['admin.courses.update',['course' => $course]], 'method' => 'post', 'enctype' => 'multipart/form-data', 'class' => 'col-6 offset-3  mb-2']) !!}
-            @method('put')
-            <div class="form-group row mb-3">
-                {!! Form::label('code','Kód kurzu', ['class' => 'col-sm-2 col-form-label']); !!}
-                <div class="col-sm-10">
-                    {!! Form::text('code', old('code') ?? $course->code, ['class' => 'form-control','required' => 'required','maxlength' => 3]); !!}
-                </div>
-            </div>
-            <div class="form-group row mb-3">
-                {!! Form::label('price','Cena', ['class' => 'col-sm-2 col-form-label']); !!}
-                <div class="col-sm-10">
-                    {!! Form::number('price', old('price') ?? $course->price, ['class' => 'form-control','required' => 'required','step' => '0.01']); !!}
-                </div>
-            </div>
-            <div class="form-group row mb-3">
-                {!! Form::label('short_desc_1','Popis 1', ['class' => 'col-sm-2 col-form-label']); !!}
-                <div class="col-sm-10">
-                    {!! Form::text('short_desc_1', old('short_desc_1') ?? $course->short_desc_1,['class' => 'form-control ','required' => 'required']); !!}
-                </div>
-            </div>
+        <div class="row">
+            <form action="{{route('admin.courses.update',['course' => $course])}}" method="post"
+                  class="col-6 offset-3">
+                @csrf
+                @method('put')
 
-            <div class="form-group row mb-3">
-                {!! Form::label('short_desc_2','Popis 2', ['class' => 'col-sm-2 col-form-label']); !!}
-                <div class="col-sm-10">
-                    {!! Form::text('short_desc_2', old('short_desc_2') ?? $course->short_desc_2,['class' => 'form-control ','required' => 'required']); !!}
+                <div class="form-group row mb-3">
+                    <label for="licence_type_code" class="col-sm-2 col-form-label">Typ *</label>
+                    <div class="col-sm-10">
+                        <select name="licence_type_code" required id="licence_type_code"
+                                class="select2 w-100">
+                            @foreach($licenceTypes as $type)
+                                <option
+                                    {{(old('license_type_code')== $type->code || (old('license_type_code') && $course->license_type_code == $type->code)) ? 'selected': ''}}
+                                    value="{{$type->code}}">{{$type->code}}</option>
+                            @endforeach
+                        </select>
+                    </div>
                 </div>
-            </div>
+                <div class="form-group row mb-3">
+                    <label for="date_from" class="col-sm-2 col-form-label">Od *</label>
+                    <div class="col-sm-10">
+                        <input type="date" id="date_from" name="date_from"
+                               value="{{old('date_from') ?? $course->date_from}}"
+                               class="form-control"
+                               required step="0.01">
+                    </div>
 
-            <div class="form-group row mb-3">
-                {!! Form::label('short_desc_3','Popis 3', ['class' => 'col-sm-2 col-form-label']); !!}
-                <div class="col-sm-10">
-                    {!! Form::text('short_desc_3', old('short_desc_3') ?? $course->short_desc_3,['class' => 'form-control ','required' => 'required']); !!}
                 </div>
-            </div>
+                <div class="form-group row mb-3">
+                    <label for="date_to" class="col-sm-2 col-form-label">Do *</label>
+                    <div class="col-sm-10">
+                        <input type="date" id="date_to" name="date_to"
+                               value="{{old('date_to') ?? $course->date_to}}"
+                               class="form-control" required>
+                    </div>
+                </div>
 
-            {!! Form::submit('Uložiť', ['class' => 'btn btn-success']) !!}
-            {!! Form::close() !!}
-
+                <div class="form-group row mb-3">
+                    <label for="capacity" class="col-sm-2 col-form-label">Kapacita *</label>
+                    <div class="col-sm-10">
+                        <input type="number" id="capacity" name="capacity"
+                               value="{{old('capacity') ?? $course->capacity}}"
+                               class="form-control" required min="0">
+                    </div>
+                </div>
+                <div class="form-group row mb-3">
+                    <label for="vehicle_id" class="col-sm-2 col-form-label">Použité vozidlo</label>
+                    <div class="col-sm-10">
+                        <select name="vehicle_id" id="vehicle_id"
+                                class="select2 w-100">
+                            @foreach($vehicles as $v)
+                                <option
+                                    {{(old('vehicle_id') == $v->id || (old('vehicle_id') && $course->vehicle_id == $v->id)) ? 'selected': ''}}
+                                    value="{{$v->id}}">{{$v->brand}} {{$v->name}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
+                <div class="w-100 text-end">
+                    <button type="submit" class="btn btn-success ">Odoslať</button>
+                </div>
+            </form>
         </div>
-            <div class="row ">
-                {!! Form::open(['route' => ['admin.courses.destroy',['course' => $course]], 'method' => 'post', 'enctype' => 'multipart/form-data', 'class' => 'col-6 offset-3']) !!}
-                @method('delete')
-                {!! Form::submit('Vymazať', ['class' => 'btn btn-danger']) !!}
-                {!! Form::close() !!}
-
-            </div>
     </div>
 @endsection

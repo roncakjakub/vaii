@@ -20,13 +20,15 @@
     <link href='https://fonts.googleapis.com/css?family=Merriweather' rel='stylesheet'>
     <link rel="icon" type="image/png" href="{{ asset('img/favicon.ico') }}">
     <link href="{{ asset('css/style.css')}}" rel="stylesheet">
+    <meta name="csrf-token" content="{{ csrf_token() }}"/>
+
 </head>
 <body class="position-relative">
 <!-- Header -->
 
 <nav class="navbar navbar-expand-lg static-top navbar-light">
     <div class="container">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="/">
             <img src="{{asset('img/logo.png')}}" alt="Logo" height="36">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -42,7 +44,7 @@
                 </li>
                 <li class="nav-item me-3 text-end">
                     <a class="nav-link ff-mrsw fs-20 @if(in_array(\Illuminate\Support\Facades\Route::currentRouteName(), ['courses.index'])) active @endif"
-                       href="{{route('courses.index')}}">Kurzy</a>
+                       href="{{route('licence_types.index')}}">Licencie</a>
                 </li>
                 <li class="nav-item me-3 text-end">
                     <a class="nav-link ff-mrsw fs-20 @if(in_array(\Illuminate\Support\Facades\Route::currentRouteName(), ['contact'])) active @endif"
@@ -54,10 +56,19 @@
                                 class="d-lg-none ff-mrsw fs-20">Príhlasenie</span> <i
                                 class="d-none d-lg-inline-block fa fa-user"></i> </a>
                         <ul class="dropdown-menu">
-                            {{--                            <li><a class="dropdown-item" href="{{route('admin.courses.index')}}"> Správa--}}
-                            {{--                                    kurzov </a></li>--}}
-                            {{--                            <li><a class="dropdown-item" href="#"> Správa kontaktov </a></li>--}}
-                            {{--                            <li class="dropdown-divider"></li>--}}
+                            <li><a class="dropdown-item" href="{{route('admin.courses.index')}}"> Kurzy </a>
+                            {{--                            <li><a class="dropdown-item" href="{{route('admin.course_requests.index')}}">--}}
+                            {{--                                    Žiadosti </a></li>--}}
+                            {{--                            </li>--}}
+                            <li><a class="dropdown-item" href="{{route('admin.students.index')}}">
+                                    Študenti </a></li>
+                            </li>
+                            <li><a class="dropdown-item" href="{{route('admin.teachers.index')}}">
+                                    Učitelia </a></li>
+                            </li>
+                            <li><a class="dropdown-item" href="{{route('admin.vehicles.index')}}">
+                                    Vozidlá </a></li>
+                            </li>
                             <li><a class="dropdown-item" href="{{route('logout')}}"> Odhlásiť sa </a></li>
                         </ul>
                     </li>
@@ -73,22 +84,52 @@
         </div>
     </div>
 </nav>
-
-<div class="sub-nav text-white text-center my-shadow ff-mrsw">
-    <div class="container">
-        Z dôvodu nariadenia vlády SR o zákaze vychádzania. Prevádzka našej autoškoly bude dňom 19.9.2021
-        dočasne uzavreta.
-        Účastníkov prebiehajúcich kurzov budeme o jazdách včas informovať.
+@guest()
+    <div class="sub-nav text-white text-center my-shadow ff-mrsw">
+        <div class="container">
+            Z dôvodu nariadenia vlády SR o zákaze vychádzania. Prevádzka našej autoškoly bude dňom 19.9.2021
+            dočasne uzavreta.
+            Účastníkov prebiehajúcich kurzov budeme o jazdách včas informovať.
+        </div>
     </div>
-</div>
-
+@endguest
 <!-- Content -->
 <div id="layout-content" class="layout-content clearfix">
     @yield('content')
 </div>
+<div class="modal" id="mainModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header" id="mainModalHeader">
+                <h5 class="modal-title text-white" id="mainModalTitle">Modal title</h5>
+
+            </div>
+            <div class="modal-body" id="mainModalBody">
+                <p>Modal body text goes here.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="mainModalSubmitBtn" class="btn btn-primary">Odoslať</button>
+                <button type="button" id="mainModalCloseBtn" class="btn" data-bs-dismiss="modal">Zavrieť
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <footer class="ff-crd fs-16 text-center py-3 position-absolute w-100 text-center">
     Jakub Rončák © 2021
 </footer>
+
 <script src="{{ asset('js/script.js') }}"></script>
+<script type="text/javascript">
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+        }
+    });
+</script>
+@stack('scripts')
 </body>
 </html>

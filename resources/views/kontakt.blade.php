@@ -16,7 +16,7 @@
                                         <span class="input-group-text h-100" id="basic-addon1"><i
                                                 class="fas fa-user"></i></span>
                         </div>
-                        <input type="text" class="form-control" placeholder="Username"
+                        <input type="text" class="form-control" placeholder="Meno"
                                aria-label="Username" aria-describedby="basic-addon1">
                     </div>
                     <div class="col-8 w-75 input-group mb-3">

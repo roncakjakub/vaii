@@ -1,46 +1,50 @@
 @extends('templates.default')
 @section('content')
+    <h1 class="text-center mt-4 ff-mrsw">Kurzy</h1>
+
     <div class="kurzy container mt-5 ff-crd">
-        <div class="row">
-            @foreach($courses as $course)
-                <a class="text-black col-lg-4 col-12 col-sm-6 mb-4 text-my-grey2 position-relative"
-                   href="{{route('courses.show',['course' => $course])}}">
-                    @auth()
-                        <div data-href="{{route('admin.courses.edit',['course' => $course])}}"
-                             class="addressable admin-actions position-absolute">
-                            <i class="fas fa-edit"></i>
-                        </div>
-                    @endauth
-                    <div class="bg-white my-shadow w-100">
+        <div class="row justify-content-center">
+            <table class="table w-75 bg-white text-my-grey2 my-shadow">
+                <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Typ</th>
+                    <th scope="col">Od</th>
+                    <th scope="col">Do</th>
+                    <th scope="col">Použité vozidlo</th>
+                    <th scope="col"></th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach($courses as $i =>  $c)
+                    <tr class="align-middle">
+                        <th scope="row">{{$c->id}}</th>
+                        <td>{{$c->licence_type_code}}</td>
+                        <td>{{$c->date_from_formatted}}</td>
+                        <td>{{$c->date_to_formatted}}</td>
+                        <td>{{$c->vehicle->name ?? '-'}}</td>
+                        <td class="text-end">
+                            <a class="text-dark btn"
+                               href="{{route('admin.courses.edit',['course' => $c])}}"><i
+                                    class="fas fa-edit"></i></a>
+                            <button class="text-danger cursor-pointer btn"
+                                    onclick="showDeleteModal(this,'{{route('admin.courses.destroy',['course' => $c])}}')">
+                                <i
+                                    class="fas fa-trash-alt"></i></button>
+                        </td>
+                    </tr>
+                @endforeach
+                <tr>
+                    <td colspan="6" class="text-center p-0">
+                        <a class="text-dark" href="{{route('admin.courses.create')}}">
+                            <div class="w-100" style="background-color: lightgrey">
+                                <i class="fas fa-plus mx-3 my-3"></i></div>
+                        </a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
 
-                        <div class="row justify-content-between py-2 align-items-center w-100 mx-0 px-2">
-                            <h2 class="col-7 ff-crd fw-bold fs-24 pt-2 ps-0 my-0">Skupina {{$course->code}}</h2>
-                            <span
-                                class="col-4 text-center p-1 ff-mrsw fs-24 fw-bold text-red my-shadow ">{{$course->price}}€</span>
-                        </div>
-
-                        <div class="row w-100 mx-0">
-                            <div class="p-0 image w-100">
-                                <img class="w-100 h-100" src="{{asset('img/courses/am.png')}}" alt="">
-                            </div>
-                            <ul class="text-my-grey fs-16 my-2 w-100">
-                                <li>{{$course->short_desc_1}}</li>
-                                <li>{{$course->short_desc_2}}</li>
-                                <li>{{$course->short_desc_3}}</li>
-                            </ul>
-
-                        </div>
-                    </div>
-                </a>
-            @endforeach
-            @auth()
-                <a class="text-black col-lg-4 col-12 col-sm-6 mb-3 text-my-grey2 new-item"
-                   href="{{route('admin.courses.create')}}">
-                    <div class="bg-white my-shadow w-100 row h-100 justify-content-center align-content-center ms-0">
-                    +
-                    </div>
-                </a>
-            @endauth
         </div>
     </div>
 @endsection
