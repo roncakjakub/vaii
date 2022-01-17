@@ -10,21 +10,21 @@ class Course extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['licence_type_code', 'date_from', 'date_to', 'vehicle_id','capacity'];
+    protected $fillable = ['licence_type_code', 'date_from', 'date_to', 'vehicle_id', 'capacity'];
 
     public function licenceType()
     {
-        return $this->belongsTo(LicenceType::class, 'licence_type_code','code');
+        return $this->belongsTo(LicenceType::class, 'licence_type_code', 'code');
     }
 
     public function students()
     {
-        return $this->belongsToMany(User::class, 'course_students', 'user_id', 'course_id');
+        return $this->belongsToMany(User::class, 'course_students', 'course_id','user_id');
     }
 
     public function teachers()
     {
-        return $this->belongsToMany(User::class, 'course_teachers', 'user_id', 'course_id');
+        return $this->belongsToMany(User::class, 'course_teachers', 'course_id','user_id');
     }
 
 //    public function vehicles()
@@ -45,5 +45,10 @@ class Course extends Model
     public function getDateToFormattedAttribute()
     {
         return (new Carbon($this->date_to))->format('d.m.Y');
+    }
+
+    public function getActualStudentsCountAttribute()
+    {
+        return $this->students()->count();
     }
 }

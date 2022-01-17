@@ -13,7 +13,7 @@ class StoreStudentFormRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,17 @@ class StoreStudentFormRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|unique:users,email|max:255',
+            'number' => 'nullable|max:255',
+            'role' => 'required|in:teacher,student|max:255',
         ];
+    }
+
+    public function validationData()
+    {
+        $data = $this->all();
+        $data['role'] = 'student';
+        return $data;
     }
 }

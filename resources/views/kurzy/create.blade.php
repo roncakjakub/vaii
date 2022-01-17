@@ -14,24 +14,25 @@
             <div class='alert alert-danger'>{{session('error')}}</div>
         @endif
 
-        <div class="row">
-            <form action="{{route('admin.courses.store')}}" method="post" class="col-6 offset-3">
+        <div class="row justify-content-center">
+            <form action="{{route('admin.courses.store')}}" method="post" class="col-xl-7 col-md-9 col-12">
                 @csrf
                 <div class="form-group row mb-3">
-                    <label for="licence_type_code" class="col-sm-2 col-form-label">Typ *</label>
-                    <div class="col-sm-10">
+                    <label for="licence_type_code" class="col-sm-3 col-form-label dont-wrap-words">Typ *</label>
+                    <div class="col-sm-9">
                         <select name="licence_type_code" required id="licence_type_code"
                                 class="select2 w-100">
+                            <option value="">Vyberte</option>
                             @foreach($licenceTypes as $type)
-                                <option {{old('license_type_code') == $type->code ? 'selected': ''}}
+                                <option {{old('licence_type_code') == $type->code ? 'selected': ''}}
                                         value="{{$type->code}}">{{$type->code}}</option>
                             @endforeach
                         </select>
                     </div>
                 </div>
                 <div class="form-group row mb-3">
-                    <label for="date_from" class="col-sm-2 col-form-label">Od *</label>
-                    <div class="col-sm-10">
+                    <label for="date_from" class="col-sm-3 col-form-label dont-wrap-words">Od *</label>
+                    <div class="col-sm-9">
                         <input type="date" id="date_from" name="date_from" value="{{old('date_from')}}"
                                class="form-control"
                                required step="0.01">
@@ -39,27 +40,28 @@
 
                 </div>
                 <div class="form-group row mb-3">
-                    <label for="date_to" class="col-sm-2 col-form-label">Do *</label>
-                    <div class="col-sm-10">
+                    <label for="date_to" class="col-sm-3 col-form-label dont-wrap-words">Do *</label>
+                    <div class="col-sm-9">
                         <input type="date" id="date_to" name="date_to" value="{{old('date_to')}}"
                                class="form-control" required>
                     </div>
                 </div>
 
                 <div class="form-group row mb-3">
-                    <label for="capacity" class="col-sm-2 col-form-label">Kapacita *</label>
-                    <div class="col-sm-10">
+                    <label for="capacity" class="col-sm-3 col-form-label dont-wrap-words">Kapacita *</label>
+                    <div class="col-sm-9">
                         <input type="number" id="capacity" name="capacity" value="{{old('capacity')}}"
                                class="form-control" required min="0">
                     </div>
                 </div>
                 <div class="form-group row mb-3">
-                    <label for="vehicle_id" class="col-sm-2 col-form-label">Použité vozidlo</label>
-                    <div class="col-sm-10">
+                    <label for="vehicle_id" class="col-sm-3 col-form-label dont-wrap-words">Použité vozidlo</label>
+                    <div class="col-sm-9">
                         <select name="vehicle_id" id="vehicle_id"
                                 class="select2 w-100">
-                            @foreach($vehicles as $v)
-                                <option {{old('license_type_code') == $v->id ? 'selected': ''}}
+                            <option value="">Vyberte</option>
+                        @foreach($vehicles as $v)
+                                <option {{old('licence_type_code') == $v->id ? 'selected': ''}}
                                         value="{{$v->id}}">{{$v->brand}} {{$v->name}}</option>
                             @endforeach
                         </select>

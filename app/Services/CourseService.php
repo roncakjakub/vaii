@@ -86,6 +86,7 @@ class CourseService
      */
     public static function updateLicenceType(LicenceType $type, array $data)
     {
+//        dd($type, $data);
         actionWrapper(function () use ($type, $data) {
             $type->update($data);
         });

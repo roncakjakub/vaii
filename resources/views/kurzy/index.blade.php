@@ -4,14 +4,14 @@
 
     <div class="kurzy container mt-5 ff-crd">
         <div class="row justify-content-center">
-            <table class="table w-75 bg-white text-my-grey2 my-shadow">
+            <table class="table w-75 bg-white text-my-grey2 my-shadow text-center">
                 <thead>
                 <tr>
                     <th scope="col">#</th>
                     <th scope="col">Typ</th>
-                    <th scope="col">Od</th>
-                    <th scope="col">Do</th>
-                    <th scope="col">Použité vozidlo</th>
+                    <th scope="col">Termín</th>
+                    <th scope="col" class="d-none d-md-table-cell">Použité vozidlo</th>
+                    <th scope="col">Prihlásení</th>
                     <th scope="col"></th>
                 </tr>
                 </thead>
@@ -20,10 +20,12 @@
                     <tr class="align-middle">
                         <th scope="row">{{$c->id}}</th>
                         <td>{{$c->licence_type_code}}</td>
-                        <td>{{$c->date_from_formatted}}</td>
-                        <td>{{$c->date_to_formatted}}</td>
-                        <td>{{$c->vehicle->name ?? '-'}}</td>
-                        <td class="text-end">
+                        <td>{{$c->date_from_formatted}} - {{$c->date_to_formatted}}</td>
+                        <td class="d-none d-md-table-cell">{{$c->vehicle->name ?? '-'}}</td>
+                        <td>
+                            <div class="lineProgressBarContainer position-relative" data-capacity="{{$c->capacity}}" data-actual-students-count="{{$c->actualStudentsCount}}" style="height: 4px;width: 100%"></div>
+                        </td>
+                        <td class="text-lg-end">
                             <a class="text-dark btn"
                                href="{{route('admin.courses.edit',['course' => $c])}}"><i
                                     class="fas fa-edit"></i></a>

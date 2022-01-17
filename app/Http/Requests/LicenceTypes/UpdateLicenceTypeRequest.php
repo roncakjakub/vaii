@@ -24,7 +24,7 @@ class UpdateLicenceTypeRequest extends FormRequest
     public function rules()
     {
         return [
-            'code' => 'required|string|max:20|unique:course_types,code,'.$this->type->code.',code',
+            'code' => 'required|string|max:20|unique:licence_types,code,'.$this->type->code.',code',
             'price' => 'required|numeric',
             'short_desc_1' => 'required|string',
             'short_desc_2' => 'required|string',

@@ -8,6 +8,7 @@ use App\Http\Requests\LicenceTypes\StoreLicenceTypeRequest;
 use App\Http\Requests\LicenceTypes\UpdateLicenceTypeRequest;
 use App\Models\Course;
 use App\Models\LicenceType;
+use App\Models\User;
 use App\Models\Vehicle;
 use App\Services\CourseService;
 use Illuminate\Http\Request;
@@ -22,6 +23,7 @@ class CourseController extends Controller
     public function index()
     {
         $courses = Course::all();
+
         return view('kurzy.index', compact('courses'));
     }
 

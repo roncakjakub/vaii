@@ -5203,6 +5203,9 @@ readers do not read off random characters that represent icons */
 .cursor-pointer {
   cursor: pointer; }
 
+.dont-wrap-words {
+  white-space: nowrap; }
+
 * {
   padding: 0;
   margin: 0; }
@@ -5224,10 +5227,14 @@ footer {
   bottom: 0; }
 
 .select2-container {
-  z-index: 100000; }
+  z-index: 100000;
+  width: 100% !important; }
 
 .btn:focus {
   box-shadow: none !important; }
+
+.progressbar-text {
+  white-space: nowrap; }
 
 .navbar {
   background-color: #FFFFFF;

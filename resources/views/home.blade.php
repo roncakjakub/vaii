@@ -135,6 +135,7 @@
                                 data-placeholder="Typ kurzu"
                                 data-course-fetch-url="{{route('courses.getAvailableByTypeCode',['type' => 'code'])}}"
                                 class="select2">
+                            <option value="">Kurz</option>
                             @foreach($licenceTypes as $licenceType)
                                 <option value="{{$licenceType->code}}">{{$licenceType->code}}</option>
                             @endforeach
@@ -142,6 +143,7 @@
                         <select name="course_id" id="modalCourseSelect" required hidden
                                 data-placeholder="Termín kurzu"
                                 class="select2">
+                            <option value="">Termín</option>
                         </select>
                         <p class="text-danger" id="modalCourseSelectNotFoundMsg" hidden>Ľutujeme, ale
                             momentálne nemáme žiadne dostupné termíny. Môžete nám ale

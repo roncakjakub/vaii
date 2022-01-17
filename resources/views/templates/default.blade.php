@@ -43,7 +43,7 @@
                        href="{{route('home')}}">Domov</a>
                 </li>
                 <li class="nav-item me-3 text-end">
-                    <a class="nav-link ff-mrsw fs-20 @if(in_array(\Illuminate\Support\Facades\Route::currentRouteName(), ['courses.index'])) active @endif"
+                    <a class="nav-link ff-mrsw fs-20 @if(substrInArray(\Illuminate\Support\Facades\Route::currentRouteName(), ['licence_types.'])) active @endif"
                        href="{{route('licence_types.index')}}">Licencie</a>
                 </li>
                 <li class="nav-item me-3 text-end">
@@ -52,7 +52,7 @@
                 </li>
                 @auth()
                     <li class="nav-item dropdown d-flex align-self-lg-center align-self-end me-3 me-lg-0">
-                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"> <span
+                        <a class="nav-link dropdown-toggle @if(substrInArray(\Illuminate\Support\Facades\Route::currentRouteName(), ['teachers','students','courses','vehicles'])) active @endif" href="#" data-bs-toggle="dropdown"> <span
                                 class="d-lg-none ff-mrsw fs-20">Príhlasenie</span> <i
                                 class="d-none d-lg-inline-block fa fa-user"></i> </a>
                         <ul class="dropdown-menu">
@@ -62,13 +62,10 @@
                             {{--                            </li>--}}
                             <li><a class="dropdown-item" href="{{route('admin.students.index')}}">
                                     Študenti </a></li>
-                            </li>
                             <li><a class="dropdown-item" href="{{route('admin.teachers.index')}}">
                                     Učitelia </a></li>
-                            </li>
                             <li><a class="dropdown-item" href="{{route('admin.vehicles.index')}}">
                                     Vozidlá </a></li>
-                            </li>
                             <li><a class="dropdown-item" href="{{route('logout')}}"> Odhlásiť sa </a></li>
                         </ul>
                     </li>
@@ -121,11 +118,11 @@
 </footer>
 
 <script src="{{ asset('js/script.js') }}"></script>
-<script type="text/javascript">
+<script>
     $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
-            'Content-Type': 'application/json',
+            // 'Content-Type': 'application/json',
             'Accept': 'application/json',
         }
     });

@@ -40,7 +40,7 @@
                                   placeholder="Vaša správa"></textarea>
                     </div>
                     <div class="offset-8 col-4 align-content-end ">
-                        <button type="button" class="btn bg-red text-white ff-mrsw fs-16 w-100">
+                        <button type="submit" class="btn bg-red text-white ff-mrsw fs-16 w-100">
                             Odoslať
                         </button>
                     </div>

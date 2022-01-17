@@ -150,4 +150,22 @@ if (!function_exists('checkActionAllowed')) {
 }
 
 
+if (!function_exists('substrInArray')) {
+    /**
+     * @param string $action
+     * @param array<string> $params
+     * @return bool
+     */
+    function substrInArray(string $haystack, array $needles)
+    {
+        foreach ($needles as $substr) {
+            if (strpos($haystack, $substr) !== false) {
+                return true;
+            }
+        }
+        return false;
+    }
+}
+
+
 

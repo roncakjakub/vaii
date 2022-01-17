@@ -44,6 +44,7 @@
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.4",
     "laravel-elixir": "^5.0.0",
+    "progressbar.js": "^1.1.0",
     "select2": "*"
   }
 }

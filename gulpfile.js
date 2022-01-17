@@ -26,6 +26,7 @@ elixir(function (mix) {
         // 'themes/pavuk/assets/js/masonry.js',
         'node_modules/bootstrap/dist/js/bootstrap.js',
         'node_modules/select2/dist/js/select2.js',
+        'node_modules/progressbar.js/dist/progressbar.min.js',
         // 'themes/pavuk/assets/js/imagesLoaded.js',
         // 'themes/pavuk/assets/js/masonry.js',
         // 'node_modules/lightbox2/dist/js/lightbox.js',

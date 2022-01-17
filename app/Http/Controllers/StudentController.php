@@ -17,7 +17,7 @@ class StudentController extends Controller
     public function index()
     {
         $students = User::students()->get();
-        return view('students.index', compact('students'));
+        return view('studenti.index', compact('students'));
     }
 
     /**
@@ -27,7 +27,7 @@ class StudentController extends Controller
      */
     public function create()
     {
-        return view('students.create', compact());
+        return view('studenti.create');
     }
 
     /**
@@ -61,7 +61,7 @@ class StudentController extends Controller
      */
     public function edit(User $student)
     {
-        return view('students.edit', compact('student'));
+        return view('studenti.edit', compact('student'));
     }
 
     /**

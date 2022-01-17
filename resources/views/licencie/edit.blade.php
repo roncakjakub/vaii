@@ -16,36 +16,36 @@
         @endif
 
         <div class="row ">
-            {!! Form::open(['route' => ['admin.licence_types.update',['type' => $type]], 'method' => 'post', 'enctype' => 'multipart/form-data', 'class' => 'col-6 offset-3  mb-2']) !!}
+            {!! Form::open(['route' => ['admin.licence_types.update',['type' => $type]], 'method' => 'post', 'enctype' => 'multipart/form-data', 'class' => 'col-xl-7 col-md-9 col-12 mb-2']) !!}
             @method('put')
             <div class="form-group row mb-3">
-                {!! Form::label('code','Kód kurzu', ['class' => 'col-sm-2 col-form-label']); !!}
+                {!! Form::label('code','Kód kurzu', ['class' => 'col-sm-3 col-form-label dont-wrap-words']); !!}
                 <div class="col-sm-10">
                     {!! Form::text('code', old('code') ?? $type->code, ['class' => 'form-control','required' => 'required','maxlength' => 3]); !!}
                 </div>
             </div>
             <div class="form-group row mb-3">
-                {!! Form::label('price','Cena', ['class' => 'col-sm-2 col-form-label']); !!}
+                {!! Form::label('price','Cena', ['class' => 'col-sm-3 col-form-label dont-wrap-words']); !!}
                 <div class="col-sm-10">
                     {!! Form::number('price', old('price') ?? $type->price, ['class' => 'form-control','required' => 'required','step' => '0.01']); !!}
                 </div>
             </div>
             <div class="form-group row mb-3">
-                {!! Form::label('short_desc_1','Popis 1', ['class' => 'col-sm-2 col-form-label']); !!}
+                {!! Form::label('short_desc_1','Popis 1', ['class' => 'col-sm-3 col-form-label dont-wrap-words']); !!}
                 <div class="col-sm-10">
                     {!! Form::text('short_desc_1', old('short_desc_1') ?? $type->short_desc_1,['class' => 'form-control ','required' => 'required']); !!}
                 </div>
             </div>
 
             <div class="form-group row mb-3">
-                {!! Form::label('short_desc_2','Popis 2', ['class' => 'col-sm-2 col-form-label']); !!}
+                {!! Form::label('short_desc_2','Popis 2', ['class' => 'col-sm-3 col-form-label dont-wrap-words']); !!}
                 <div class="col-sm-10">
                     {!! Form::text('short_desc_2', old('short_desc_2') ?? $type->short_desc_2,['class' => 'form-control ','required' => 'required']); !!}
                 </div>
             </div>
 
             <div class="form-group row mb-3">
-                {!! Form::label('short_desc_3','Popis 3', ['class' => 'col-sm-2 col-form-label']); !!}
+                {!! Form::label('short_desc_3','Popis 3', ['class' => 'col-sm-3 col-form-label dont-wrap-words']); !!}
                 <div class="col-sm-10">
                     {!! Form::text('short_desc_3', old('short_desc_3') ?? $type->short_desc_3,['class' => 'form-control ','required' => 'required']); !!}
                 </div>
@@ -56,7 +56,7 @@
 
         </div>
             <div class="row ">
-                {!! Form::open(['route' => ['admin.courses.destroy',['course' => $type]], 'method' => 'post', 'enctype' => 'multipart/form-data', 'class' => 'col-6 offset-3']) !!}
+                {!! Form::open(['route' => ['admin.courses.destroy',['course' => $type]], 'method' => 'post', 'enctype' => 'multipart/form-data', 'class' => 'col-xl-7 col-md-9 col-12']) !!}
                 @method('delete')
                 {!! Form::submit('Vymazať', ['class' => 'btn btn-danger']) !!}
                 {!! Form::close() !!}

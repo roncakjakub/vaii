@@ -40,7 +40,7 @@ class LicenceTypeController extends Controller
     public function store(StoreLicenceTypeRequest $request)
     {
         CourseService::createLicenceType($request->validated());
-        return redirect()->route('course_types.index');
+        return redirect()->route('licence_types.index');
     }
 
     /**
@@ -76,7 +76,7 @@ class LicenceTypeController extends Controller
     public function update(UpdateLicenceTypeRequest $request, LicenceType $type)
     {
         CourseService::updateLicenceType($type, $request->validated());
-        return redirect()->route('course_types.index');
+        return redirect()->route('licence_types.index');
     }
 
     /**
@@ -88,7 +88,7 @@ class LicenceTypeController extends Controller
     public function destroy(LicenceType $type)
     {
         CourseService::deleteLicenceType($type);
-        return redirect()->route('course_types.index');
+        return redirect()->route('licence_types.index');
 
     }
 }
