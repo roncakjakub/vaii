@@ -46,12 +46,13 @@ $(document).ready(function () {
                 //     .select2('destroy');
                 // $select.empty();
                 $select.html('').select2({
-                    data: ['<option value="">Termín</option>'] + data.map(function (c) {
-                        return {
-                            "id": c.id,
-                            'text': c.date_from_formatted + ' - ' + c.date_to_formatted
-                        };
-                    })
+                    data: //['<option value="">Termín</option>'] +
+                        data.map(function (c) {
+                            return {
+                                "id": c.id,
+                                'text': c.date_from_formatted + ' - ' + c.date_to_formatted
+                            };
+                        })
                 });
             } else {
                 $('#modalCourseSelect').toggleSelect2(false);

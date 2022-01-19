@@ -30,7 +30,7 @@
                             <option value="">Vyberte</option>
                             @foreach($licenceTypes as $type)
                                 <option
-                                    {{(old('licence_type_code')== $type->code || (old('licence_type_code') && $course->licence_type_code == $type->code)) ? 'selected': ''}}
+                                    {{(old('licence_type_code')== $type->code || (!old('licence_type_code') && $course->licence_type_code == $type->code)) ? 'selected': ''}}
                                     value="{{$type->code}}">{{$type->code}}</option>
                             @endforeach
                         </select>
@@ -72,7 +72,7 @@
                             <option value="">Vyberte</option>
                             @foreach($vehicles as $v)
                                 <option
-                                    {{(old('vehicle_id') == $v->id || (old('vehicle_id') && $course->vehicle_id == $v->id)) ? 'selected': ''}}
+                                    {{(old('vehicle_id') == $v->id || (!old('vehicle_id') && $course->vehicle_id == $v->id)) ? 'selected': ''}}
                                     value="{{$v->id}}">{{$v->brand}} {{$v->name}}</option>
                             @endforeach
                         </select>
